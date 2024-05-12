@@ -1,0 +1,36 @@
+Data Preprocessing
+1. Data Collection
+Sources: Data is collected from two primary sources: dawn.com and BBC.com.
+Collection Method: Automated scripts using Python's requests and BeautifulSoup libraries extract article titles, descriptions, and links from the landing pages of these sources.
+2. Data Cleaning
+Null Value Handling: Missing data fields are identified and filled with 'Not available' to maintain data consistency.
+Data Formatting: Text data is formatted to remove excess whitespace, special characters, and HTML tags using regular expressions.
+Noise Reduction: Outliers and irrelevant data points (e.g., advertisements) are identified through manual review and removed from the dataset.
+3. Feature Engineering
+Feature Creation: No new features were created as the focus remains on the extracted data.
+Feature Selection: All extracted features are deemed necessary for the project's analytical goals and thus retained.
+4. Data Transformation
+Normalization/Standardization: Not applicable as the data consists primarily of textual information.
+Encoding: Not required at this stage as the data processing involves textual analysis.
+5. Data Storage
+Storage Format: Data is stored in CSV format for easy accessibility and manipulation.
+Storage Location: Final processed datasets are stored on Google Drive for centralized access and backup.
+
+
+Data Version Control with DVC
+1. DVC Setup
+Installation: DVC was installed via pip to ensure compatibility with our Python environment.
+Initialization: The project repository was initialized with DVC, creating necessary configuration files and directories.
+2. Configuring Remote Storage
+Creating Google Drive Folder: A dedicated folder was created in Google Drive to store our datasets.
+DVC Remote Addition: The Google Drive folder was linked to our project as the remote storage using DVC, enabling efficient data backup and retrieval.
+3. Tracking Data with DVC
+Adding Files: Data files are added to DVC tracking using the dvc add command, which also generates corresponding .dvc files.
+Committing Changes: Changes are committed to our Git repository, including .dvc files, to track versions of the data alongside our code.
+4. Versioning Data
+Pushing Data: Updated data files are pushed to Google Drive using dvc push, ensuring all versions are backed up remotely.
+Fetching Data: Data can be retrieved with dvc pull, facilitating collaboration and consistency across the team.
+Reverting Changes: Historical versions can be accessed by checking out specific Git tags or commits and using dvc checkout to sync the data files.
+5. Integrating DVC with CI/CD
+Automating with Airflow: An Apache Airflow DAG automates the entire workflow from data extraction to transformation and storage, including DVC commands to ensure data versioning is handled seamlessly.
+
