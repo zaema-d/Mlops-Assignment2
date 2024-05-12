@@ -1,0 +1,5 @@
+outs:
+- md5: 4ead348e4f0e525af213b85dcd9e503c
+  size: 8418
+  hash: md5
+  path: webscrapped.csv
